@@ -16,7 +16,11 @@ clock = pygame.time.Clock()
 
 score_font = pygame.font.Font(None, 50) #text font upto change
 
+#GRID_SIZING
+GRID_X, GRID_Y = 700, 74
+GRID_SIZE = 1152   
 BLOCK_SIZE = 96
+#/GRID_SIZING
 
 #SURFACES
 score_surface = pygame.Surface((400, 100))
@@ -29,8 +33,8 @@ score_surface.fill('darkcyan')
 #/SURFACE_COLORS
 
 def drawGrid():
-    for x in range(700, 700 + 1152, BLOCK_SIZE):
-        for y in range(74, 74 + 1152, BLOCK_SIZE):
+    for x in range(GRID_X, GRID_X + GRID_SIZE, BLOCK_SIZE):
+        for y in range(GRID_Y, GRID_Y + GRID_SIZE, BLOCK_SIZE):
             rect = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
             pygame.draw.rect(screen, "grey", rect, 1)
 
