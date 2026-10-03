@@ -17,19 +17,19 @@ clock = pygame.time.Clock()
 score_font = pygame.font.Font(None, 50) #text font upto change
 
 #GRID_SIZING
-GRID_X, GRID_Y = 700, 74
+GRID_X, GRID_Y = 750, 74
 GRID_SIZE = 1152   
 BLOCK_SIZE = 96
 #/GRID_SIZING
 
 #SURFACES
-score_surface = pygame.Surface((400, 100))
-text_surface = score_font.render("Score:", False, 'green')
+score_surface = pygame.Surface((650, SH))
+text_surface = score_font.render("Score:", False, '#262724')
 #/SURFACES
 
 #SURFACE_COLORS
-screen.fill('cornsilk')
-score_surface.fill('darkcyan')
+screen.fill('#f9f9f1')
+score_surface.fill('#e3e8d4')
 #/SURFACE_COLORS
 
 def drawGrid():
@@ -40,6 +40,7 @@ def drawGrid():
 
 drawGrid()
 
+#game loop
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -47,8 +48,8 @@ while True:
             exit() #assures that the code (in this case the while loop) is terminated
     
     #SURFACE_POSITIONING
-    screen.blit(score_surface,(150,74))
-    screen.blit(text_surface,(150,25))
+    screen.blit(score_surface,(0,0))
+    screen.blit(text_surface,(75,50))
     #/SURFACE_POSITIONING
 
     pygame.display.update() #updates the display surface
