@@ -5,15 +5,24 @@ pygame.init() #initializes pygame
 
 #displays the surface that the player sees (stored in a variable 'screen'):
 #set_mode((width,height)) - size of the window in pixels
+
 screen = pygame.display.set_mode((2000, 1300))
-screen.fill('cornsilk')
 
 pygame.display.set_caption("Domino's Domino")
 
 clock = pygame.time.Clock()
 
+#score_font = pygame.font.Font(None, 500)
+
+#SURFACES
 score_surface = pygame.Surface((400, 100))
+#text_surface = score_font.render("Score:", False, 'green')
+#/SURFACES
+
+#SURFACE_COLORS
+screen.fill('cornsilk')
 score_surface.fill('darkcyan')
+#/SURFACE_COLORS
 
 while True:
     for event in pygame.event.get():
@@ -21,7 +30,10 @@ while True:
             pygame.quit() #pygame uninitialised
             exit() #assures that the code (in this case the while loop) is terminated
     
+    #SURFACE_POSITIONING
     screen.blit(score_surface,(25,25))
+    #screen.blit(text_surface,(500,500))
+    #/SURFACE_POSITIONING
 
     pygame.display.update() #updates the display surface
     clock.tick(60)
