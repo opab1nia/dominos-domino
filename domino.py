@@ -32,11 +32,21 @@ score_surface.fill('#e3e8d4')
 grid_background_surface.fill('#ebede6')
 #/SURFACE_COLORS
 
+#RECTANGLES
+domino_block = pygame.Rect(200, 500, BLOCK_SIZE * 2, BLOCK_SIZE)
+#/RECTANGLES
+
 def drawGrid():
     for x in range(GRID_X, GRID_X + GRID_SIZE, BLOCK_SIZE):
         for y in range(GRID_Y, GRID_Y + GRID_SIZE, BLOCK_SIZE):
             grid_square = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
             pygame.draw.rect(screen, "#e3e3db", grid_square, 1)
+
+def drawDomino():
+    pygame.draw.rect(screen, '#FFFFFF', domino_block, BLOCK_SIZE, border_radius=3)
+    pygame.draw.rect(screen, '#000000', domino_block, 2, border_radius=3)
+    pygame.draw.line(screen, '#000000', (domino_block.centerx, domino_block.top), (domino_block.centerx, domino_block.bottom), 2)
+            
 
 #game loop
 while True:
@@ -52,6 +62,7 @@ while True:
     #/SURFACE_POSITIONING
 
     drawGrid()
+    drawDomino()
 
     pygame.display.update() #updates the display surface
     clock.tick(60) #max 60fps
