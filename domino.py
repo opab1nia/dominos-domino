@@ -12,11 +12,11 @@ pygame.display.set_caption("Domino's Domino")
 
 clock = pygame.time.Clock()
 
-#score_font = pygame.font.Font(None, 500)
+score_font = pygame.font.Font(None, 50)
 
 #SURFACES
 score_surface = pygame.Surface((400, 100))
-#text_surface = score_font.render("Score:", False, 'green')
+text_surface = score_font.render("Score:", False, 'green')
 #/SURFACES
 
 #SURFACE_COLORS
@@ -31,8 +31,8 @@ while True:
             exit() #assures that the code (in this case the while loop) is terminated
     
     #SURFACE_POSITIONING
-    screen.blit(score_surface,(25,25))
-    #screen.blit(text_surface,(500,500))
+    screen.blit(score_surface,(25,75))
+    screen.blit(text_surface,(25,25))
     #/SURFACE_POSITIONING
 
     pygame.display.update() #updates the display surface
