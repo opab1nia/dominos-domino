@@ -7,6 +7,7 @@ pygame.init() #initializes pygame
 #set_mode((width,height)) - size of the window in pixels
 screen = pygame.display.set_mode((2000, 1300))
 pygame.display.set_caption("Domino's Domino")
+clock = pygame.time.Clock()
 
 while True:
     for event in pygame.event.get():
@@ -16,3 +17,4 @@ while True:
     #draw all our elements
     #update everything
     pygame.display.update() #updates the display surface
+    clock.tick(60)
