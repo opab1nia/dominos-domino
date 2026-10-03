@@ -25,20 +25,20 @@ BLOCK_SIZE = 96
 #SURFACES
 score_surface = pygame.Surface((650, SH))
 text_surface = score_font.render("Score:", False, '#262724')
+grid_background_surface = pygame.Surface((GRID_SIZE + 40, GRID_SIZE + 40))
 #/SURFACES
 
 #SURFACE_COLORS
 screen.fill('#f9f9f1')
 score_surface.fill('#e3e8d4')
+grid_background_surface.fill('#ebede6')
 #/SURFACE_COLORS
 
 def drawGrid():
     for x in range(GRID_X, GRID_X + GRID_SIZE, BLOCK_SIZE):
         for y in range(GRID_Y, GRID_Y + GRID_SIZE, BLOCK_SIZE):
             rect = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
-            pygame.draw.rect(screen, "grey", rect, 1)
-
-drawGrid()
+            pygame.draw.rect(screen, "#e3e3db", rect, 1)
 
 #game loop
 while True:
@@ -50,7 +50,10 @@ while True:
     #SURFACE_POSITIONING
     screen.blit(score_surface,(0,0))
     screen.blit(text_surface,(75,50))
+    screen.blit(grid_background_surface,(GRID_X - 20, GRID_Y - 20))
     #/SURFACE_POSITIONING
+
+    drawGrid()
 
     pygame.display.update() #updates the display surface
     clock.tick(60)
