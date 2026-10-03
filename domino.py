@@ -50,13 +50,32 @@ def drawDomino(): #argument defined outside of function, initial coordinates har
     pygame.draw.line(screen, '#000000', (domino_block.centerx, domino_block.top), (domino_block.centerx, domino_block.bottom), 2)
             
 
+mouse_pos_old = (0, 0)
+domino_pos_old = (0, 0)
+click = False
+
 #game loop
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit() #pygame uninitialised
             exit() #assures that the code (in this case the while loop) is terminated
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if domino_block.collidepoint(pygame.mouse.get_pos()) and not click:
+                click = True
+                mouse_pos_old = pygame.mouse.get_pos()
+                domino_pos_old = domino_block.center
+        if event.type == pygame.MOUSEBUTTONUP:
+            click = False
+
+    if click:
+        mouse_pos = pygame.mouse.get_pos()
+        dx = mouse_pos[0] - mouse_pos_old[0]
+        dy = mouse_pos[1] - mouse_pos_old[1]
+        domino_block.center = (domino_pos_old[0] + dx, domino_pos_old[1] + dy)
     
+    screen.fill('#f9f9f1')
+
     #SURFACE_POSITIONING
     screen.blit(score_surface,(0,0))
     screen.blit(text_surface,(75,50))
