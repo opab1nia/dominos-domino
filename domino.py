@@ -42,7 +42,7 @@ def drawGrid():
             grid_square = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
             pygame.draw.rect(screen, "#e3e3db", grid_square, 1)
 
-def drawDomino():
+def drawDomino(): #argument defined outside of function, initial coordinates hardcoded
     pygame.draw.rect(screen, '#FFFFFF', domino_block, BLOCK_SIZE, border_radius=3)
     pygame.draw.rect(screen, '#000000', domino_block, 2, border_radius=3)
     pygame.draw.line(screen, '#000000', (domino_block.centerx, domino_block.top), (domino_block.centerx, domino_block.bottom), 2)
