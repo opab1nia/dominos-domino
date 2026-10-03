@@ -5,9 +5,7 @@ pygame.init() #initializes pygame
 
 #displays the surface that the player sees (stored in a variable 'screen'):
 #set_mode((width,height)) - size of the window in pixels
-#size of playing grid is 1152px
-SW, SH = 2000, 1300
-
+SW, SH = 2000, 1300 #screen width, screen size
 screen = pygame.display.set_mode((SW, SH))
 
 pygame.display.set_caption("Domino's Domino")
@@ -17,8 +15,8 @@ clock = pygame.time.Clock()
 score_font = pygame.font.Font(None, 50) #text font upto change
 
 #GRID_SIZING
-GRID_X, GRID_Y = 750, 74
-GRID_SIZE = 1152   
+GRID_X, GRID_Y = 750, 74 #distance of grid from starting point in (x, y) coodinates
+GRID_SIZE = 1152 #size of playing grid is 1152px
 BLOCK_SIZE = 96
 #/GRID_SIZING
 
@@ -37,8 +35,8 @@ grid_background_surface.fill('#ebede6')
 def drawGrid():
     for x in range(GRID_X, GRID_X + GRID_SIZE, BLOCK_SIZE):
         for y in range(GRID_Y, GRID_Y + GRID_SIZE, BLOCK_SIZE):
-            rect = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
-            pygame.draw.rect(screen, "#e3e3db", rect, 1)
+            grid_square = pygame.Rect(x, y, BLOCK_SIZE, BLOCK_SIZE)
+            pygame.draw.rect(screen, "#e3e3db", grid_square, 1)
 
 #game loop
 while True:
@@ -56,4 +54,4 @@ while True:
     drawGrid()
 
     pygame.display.update() #updates the display surface
-    clock.tick(60)
+    clock.tick(60) #max 60fps
