@@ -5,7 +5,7 @@ pygame.init() #initializes pygame
 
 #displays the surface that the player sees (stored in a variable 'screen'):
 #set_mode((width,height)) - size of the window in pixels
-SW, SH = 2000, 1300 #screen width, screen size
+SW, SH = 2000, 1300 #screen width, screen height
 screen = pygame.display.set_mode((SW, SH))
 
 pygame.display.set_caption("Domino's Domino")
