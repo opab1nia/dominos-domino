@@ -9,6 +9,8 @@ SW, SH = 2000, 1300 #screen width, screen size
 screen = pygame.display.set_mode((SW, SH))
 
 pygame.display.set_caption("Domino's Domino")
+icon = pygame.image.load('domino.png')
+pygame.display.set_icon(icon)
 
 clock = pygame.time.Clock()
 
