@@ -35,7 +35,7 @@ GRID_SIZE = BLOCK_SIZE * 12
 
 #SURFACES
 score_surface = pygame.Surface((scale(650), SH))
-text_surface = score_font.render("Score:", False, '#262724')
+text_surface = score_font.render("Score:", True, '#262724')
 grid_background_surface = pygame.Surface((GRID_SIZE + scale(40), GRID_SIZE + scale(40)))
 #/SURFACES
 
