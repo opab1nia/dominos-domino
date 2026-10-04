@@ -1,13 +1,17 @@
 import pygame
 from sys import exit
 
+#original values:   window resolution 2000x1300 px, 
+#                   GRID_SIZE = 1152 px, 
+#                   BLOCK_SIZE = 96 px
+#                   GRID_X, GRID_Y (starting grid coordinates) = 750, 74
+
 pygame.init() #initializes pygame
 
 #displays the surface that the player sees (stored in a variable 'screen'):
 #set_mode((width,height)) - size of the window in pixels
-#original window resolution 2000x1300 px, GRID_SIZE = 1152 px, BLOCK_SIZE = 96 px
 
-#MONITOR_SCALING
+#MONITOR_SETTINGS
 monitor = pygame.display.Info()
 SW = round(monitor.current_w * 0.58) 
 SH = round((1300 / 2000) * SW) 
@@ -17,7 +21,7 @@ SCALE = SW / 2000
 
 def scale(pixels):
     return max(1, round(pixels * SCALE))
-#/MONITOR_SCALING
+#/MONITOR_SETTINGS
 
 pygame.display.set_caption("Domino's Domino")
 icon = pygame.image.load('domino.png')
