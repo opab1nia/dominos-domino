@@ -1,6 +1,6 @@
 import pygame
 from sys import exit
-
+#mae
 #original values:   window resolution 2000x1300 px, 
 #                   GRID_SIZE = 1152 px, 
 #                   BLOCK_SIZE = 96 px
